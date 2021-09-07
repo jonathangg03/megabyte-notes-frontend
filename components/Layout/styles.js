@@ -1,11 +1,12 @@
 import css from 'styled-jsx/css'
+import { colors, fontFamily } from '../../themes'
 
 export const globals = css.global`
   * {
     margin: 0;
     padding: 0;
+    font-family: ${fontFamily};
     box-sizing: border-box;
-    font-family: 'Raleway', sans-serif;
   }
 
   html {
@@ -15,12 +16,12 @@ export const globals = css.global`
 
 export default css`
   main {
-    color: white;
     width: 100vw;
     height: 100vh;
-    background-color: #000000;
-    background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
     padding: 20px;
+    color: white;
+    background-color: ${colors.bg};
+    overflow: hidden;
   }
 
   h1 {
@@ -37,9 +38,9 @@ export default css`
   }
 
   ul {
-    list-style: none;
     display: flex;
     font-size: 2rem;
+    list-style: none;
   }
 
   li {
