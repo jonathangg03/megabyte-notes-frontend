@@ -6,24 +6,24 @@ import {
   MdRemoveCircle,
   MdRemoveCircleOutline
 } from 'react-icons/md'
-const Note = ({ title, description, technology }) => {
+const Note = ({ title, description, technology, _id }) => {
   return (
     <article>
       <h2>{title}</h2>
       <p>{description}</p>
       <h3>{technology}</h3>
       <div>
-        <Link href='/'>
+        <Link href={`${_id}/view`}>
           <a>
             <MdSearch />
           </a>
         </Link>
-        <Link href='/'>
+        <Link href={`${_id}/update`}>
           <a>
             <MdEdit />
           </a>
         </Link>
-        <Link href='/'>
+        <Link href={`${_id}/delete`}>
           <a>
             <MdRemoveCircle />
           </a>

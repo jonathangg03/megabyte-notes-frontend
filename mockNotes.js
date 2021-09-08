@@ -39,42 +39,42 @@ const mockNotes = [
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 3
+    _id: 6
   },
   {
     title: 'Estamos haciendo una prueba',
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 4
+    _id: 7
   },
   {
     title: 'Estamos haciendo una prueba',
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 5
+    _id: 8
   },
   {
     title: 'Estamos haciendo una prueba',
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 3
+    _id: 9
   },
   {
     title: 'Estamos haciendo una prueba',
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 4
+    _id: 10
   },
   {
     title: 'Estamos haciendo una prueba',
     description:
       'Estamos haciendo una prueba donde mostremos las notas más importantes de lo que hemos aprendido.',
     technology: 'React.js',
-    _id: 5
+    _id: 11
   }
 ]
 
