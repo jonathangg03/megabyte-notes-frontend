@@ -7,6 +7,9 @@ export default css`
     border-top: 2px solid ${colors.react};
     border-radius: 5px 5px 0 0;
     background-color: ${colors.dark};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   h2 {
@@ -39,5 +42,41 @@ export default css`
 
   a {
     color: white;
+  }
+
+  @media (max-width: 720px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    div {
+      font-size: 2.8rem;
+    }
+  }
+
+  @media (max-width: 535px) {
+    h2 {
+      font-size: 2.3rem;
+    }
+
+    p {
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      font-size: 2.3rem;
+    }
+
+    div {
+      font-size: 3.2rem;
+    }
   }
 `

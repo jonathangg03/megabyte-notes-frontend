@@ -2,11 +2,10 @@ import css from 'styled-jsx/css'
 
 export default css`
   section {
-    margin: 40px auto 40px;
-    height: 100%;
-    max-height: 500px;
+    height: calc(100% - 61px);
     width: 100%;
     max-width: 825px;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 250px;
@@ -17,12 +16,15 @@ export default css`
   @media (max-width: 720px) {
     section {
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 270px;
+      height: calc(100% - 115px);
     }
   }
 
-  @media (max-width: 482px) {
+  @media (max-width: 535px) {
     section {
       grid-template-columns: repeat(1, 1fr);
+      height: calc(100% - 99px);
     }
   }
 `

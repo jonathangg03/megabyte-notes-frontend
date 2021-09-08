@@ -57,6 +57,7 @@ export default css`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 20px;
   }
 
   ul {
@@ -67,5 +68,34 @@ export default css`
 
   li {
     margin-left: 20px;
+  }
+
+  @media (max-width: 720px) {
+    header {
+      display: block;
+      text-align: center;
+    }
+
+    nav {
+      text-align: center;
+    }
+
+    li {
+      margin: 30px auto 0;
+    }
+
+    @media (max-width: 535px) {
+      h1 {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.5rem;
+        font-size: 2.5rem;
+      }
+      ul {
+        display: flex;
+        font-size: 1.6rem;
+        list-style: none;
+      }
+    }
   }
 `
