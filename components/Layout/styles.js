@@ -46,6 +46,11 @@ export default css`
     overflow: hidden;
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
   h1 {
     text-transform: uppercase;
     font-weight: 300;

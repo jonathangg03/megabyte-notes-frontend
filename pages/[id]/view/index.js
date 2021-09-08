@@ -14,7 +14,7 @@ const View = ({ id, title }) => {
         </Link>
       </div>
       <section>
-        <article>s</article>
+        <article></article>
       </section>
       <style jsx>{`
         div {

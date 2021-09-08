@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles, { globals } from './styles'
 
 const Layout = ({ children }) => {
@@ -8,8 +9,16 @@ const Layout = ({ children }) => {
           <h1>Notas - Davdev</h1>
           <nav>
             <ul>
-              <li>Notas</li>
-              <li>Agregar nota</li>
+              <li>
+                <Link href='/'>
+                  <a>Notas</a>
+                </Link>
+              </li>
+              <li>
+                <Link href='/new'>
+                  <a>Nueva nota</a>
+                </Link>
+              </li>
             </ul>
           </nav>
         </header>
