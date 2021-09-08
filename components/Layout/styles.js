@@ -2,6 +2,8 @@ import css from 'styled-jsx/css'
 import { colors, fontFamily } from '../../themes'
 
 export const globals = css.global`
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;600;700&display=swap');
+
   * {
     margin: 0;
     padding: 0;
@@ -11,6 +13,26 @@ export const globals = css.global`
 
   html {
     font-size: 62.5%;
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  /* Track */ /*Fondo del scroll*/
+  ::-webkit-scrollbar-track {
+    background: ${colors.bg};
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #f1f1f1;
+    border-radius: 5px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5f6368;
   }
 `
 

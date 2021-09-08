@@ -16,7 +16,6 @@ export default css`
   }
 
   p {
-    padding-bottom: 10px;
     font-size: 1.3rem;
     line-height: 2rem;
   }
@@ -26,6 +25,7 @@ export default css`
     font-size: 1.8rem;
     color: ${colors.react};
     text-align: center;
+    padding: 10px 0 20px;
   }
 
   div {
@@ -34,7 +34,7 @@ export default css`
     display: flex;
     justify-content: space-between;
     width: 120px;
-    margin: 20px auto 0;
+    margin: 0 auto;
   }
 
   a {
