@@ -13,17 +13,17 @@ const Note = ({ title, description, technology, _id }) => {
       <p>{description}</p>
       <h3>{technology}</h3>
       <div>
-        <Link href={`${_id}/view`}>
+        <Link href={`/${_id}/view`}>
           <a>
             <MdSearch />
           </a>
         </Link>
-        <Link href={`${_id}/update`}>
+        <Link href={`/${_id}/update`}>
           <a>
             <MdEdit />
           </a>
         </Link>
-        <Link href={`${_id}/delete`}>
+        <Link href={`/${_id}/delete`}>
           <a>
             <MdRemoveCircle />
           </a>

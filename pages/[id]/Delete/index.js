@@ -9,19 +9,19 @@ const Delete = ({ id }) => {
 
   const handleDelete = () => {
     console.log('Eliminar')
-    router.replace('/')
+    router.replace()
   }
   return (
     <>
-      <article>
+      <section>
         <h2>¿Seguro que deseas eliminar la nota {id}?</h2>
         <div>
           <button onClick={handleDelete}>Eliminar</button>
           <button onClick={handleCancel}>Cancelar</button>
         </div>
-      </article>
+      </section>
       <style jsx>{`
-        article {
+        section {
           text-align: center;
           margin-top: 40px;
         }
