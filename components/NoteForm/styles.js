@@ -3,7 +3,6 @@ import css from 'styled-jsx/css'
 export default css`
   form {
     margin-top: 10px;
-    /* border: 1px solid red; */
     height: calc(100% - 92px);
     overflow: auto;
   }
