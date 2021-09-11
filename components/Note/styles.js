@@ -28,6 +28,10 @@ export default css`
     border-top: 2px solid ${colors.js};
   }
 
+  article[category='Next.js'] {
+    border-top: 2px solid ${colors.next};
+  }
+
   h2 {
     padding-bottom: 15px;
     text-align: center;

@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { colors } from '../../themes'
 
 export default css`
   form {
@@ -10,7 +11,8 @@ export default css`
     font-size: 1.6rem;
   }
 
-  input {
+  input,
+  select {
     margin-bottom: 20px;
     margin-top: 5px;
     border: none;
@@ -18,11 +20,19 @@ export default css`
     width: 100%;
     max-width: 500px;
     outline: none;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
+  }
+
+  option {
+    background-color: ${colors.bg};
+    font-size: 1.7rem;
   }
 
   div {
     width: 100%;
-    height: calc(100% - 210px);
+    height: calc(100% - 280px);
   }
 
   @media (max-width: 720px) {
@@ -31,7 +41,7 @@ export default css`
     }
     div {
       width: 100%;
-      height: calc(100% - 232px);
+      height: calc(100% - 302px);
     }
   }
 
@@ -41,7 +51,7 @@ export default css`
     }
     div {
       width: 100%;
-      height: calc(100% - 277px);
+      height: calc(100% - 347px);
     }
   }
 `

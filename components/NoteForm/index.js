@@ -13,8 +13,9 @@ const NoteForm = () => {
           <p>Título de la nota</p>
           <input
             type='text'
-            required
+            name='title'
             placeholder='Título'
+            required
             className='input__element'
           />
         </label>
@@ -22,10 +23,22 @@ const NoteForm = () => {
           <p>Descripción de la nota</p>
           <input
             type='text'
-            required
+            name='description'
             placeholder='Descipción'
+            required
             className='input__element'
           />
+        </label>
+        <label>
+          <p>Categoría</p>
+          <select name='category' id='category'>
+            <option value='HTML'>HTML</option>
+            <option value='CSS'>CSS</option>
+            <option value='JavaScript'>JavaScript</option>
+            <option value='React.js'>React.js</option>
+            <option value='Node.js'>Node.js</option>
+            <option value='Next.js'>Next.js</option>
+          </select>
         </label>
         <div ref={quillRef} />
       </form>
