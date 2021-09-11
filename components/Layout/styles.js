@@ -79,6 +79,7 @@ export default css`
     header {
       display: block;
       text-align: center;
+      margin-bottom: 10px;
     }
 
     nav {
@@ -86,7 +87,7 @@ export default css`
     }
 
     li {
-      margin: 30px auto 0;
+      margin: 10px auto 0;
     }
   }
 

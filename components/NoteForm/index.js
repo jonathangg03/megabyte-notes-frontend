@@ -1,33 +1,37 @@
-import { useState, useRef, useEffect } from 'react'
 import { useQuill } from 'react-quilljs'
-import 'quill/dist/quill.snow.css'
 import styles from './styles'
+import useField from '../../hooks/useField'
+import 'quill/dist/quill.snow.css'
 
 const NoteForm = () => {
   const { quill, quillRef } = useQuill()
+
+  const titleField = useField({
+    type: 'text',
+    name: 'title',
+    placeholder: 'Título',
+    className: 'input__element',
+    required: true
+  })
+
+  const descriptionField = useField({
+    type: 'text',
+    name: 'description',
+    placeholder: 'Descripción',
+    className: 'input__element',
+    required: true
+  })
 
   return (
     <>
       <form>
         <label>
           <p>Título de la nota</p>
-          <input
-            type='text'
-            name='title'
-            placeholder='Título'
-            required
-            className='input__element'
-          />
+          <input {...titleField} />
         </label>
         <label>
           <p>Descripción de la nota</p>
-          <input
-            type='text'
-            name='description'
-            placeholder='Descipción'
-            required
-            className='input__element'
-          />
+          <input {...descriptionField} />
         </label>
         <label>
           <p>Categoría</p>
@@ -41,6 +45,7 @@ const NoteForm = () => {
           </select>
         </label>
         <div ref={quillRef} />
+        <button type='submit'>Guardar</button>
       </form>
       <style jsx>{styles}</style>
     </>

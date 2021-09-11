@@ -1,10 +1,13 @@
+import NoteForm from '../../../components/NoteForm'
+
 const Update = ({ id, title }) => {
   return (
     <>
-      <h2>Editar nota {id}</h2>
+      <h2>Agregar nueva nota</h2>
+      <NoteForm />
       <style jsx>{`
         h2 {
-          font-size: 2.7rem;
+          font-size: 1.8rem;
         }
       `}</style>
     </>

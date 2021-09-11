@@ -3,8 +3,9 @@ import { colors } from '../../themes'
 
 export default css`
   form {
-    margin-top: 10px;
+    margin: 10px auto 0;
     height: calc(100% - 92px);
+    max-width: 825px;
     overflow: auto;
   }
   label {
@@ -18,7 +19,6 @@ export default css`
     border: none;
     padding: 5px;
     width: 100%;
-    max-width: 500px;
     outline: none;
     color: white;
     background-color: transparent;
@@ -32,7 +32,16 @@ export default css`
 
   div {
     width: 100%;
-    height: calc(100% - 280px);
+    height: calc(100% - 330px);
+  }
+
+  button {
+    margin: 10px auto 0;
+    display: block;
+    padding: 8px 70px;
+    color: white;
+    background-color: transparent;
+    border: 1px solid white;
   }
 
   @media (max-width: 720px) {
@@ -41,7 +50,7 @@ export default css`
     }
     div {
       width: 100%;
-      height: calc(100% - 302px);
+      height: calc(100% - 330px);
     }
   }
 
@@ -52,6 +61,10 @@ export default css`
     div {
       width: 100%;
       height: calc(100% - 347px);
+    }
+    input,
+    select {
+      margin-bottom: 10px;
     }
   }
 `
