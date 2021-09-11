@@ -4,7 +4,7 @@ import { MdSearch, MdEdit, MdRemoveCircle } from 'react-icons/md'
 
 const Note = ({ title, description, category, _id }) => {
   return (
-    <article>
+    <article category={category}>
       <h2>{title}</h2>
       <p>{description}</p>
       <h3>{category}</h3>

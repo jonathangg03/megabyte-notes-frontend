@@ -12,6 +12,22 @@ export default css`
     justify-content: space-between;
   }
 
+  article[category='Node.js'] {
+    border-top: 2px solid ${colors.node};
+  }
+
+  article[category='JavaScript'] {
+    border-top: 2px solid ${colors.js};
+  }
+
+  article[category='HTML'] {
+    border-top: 2px solid ${colors.node};
+  }
+
+  article[category='CSS'] {
+    border-top: 2px solid ${colors.js};
+  }
+
   h2 {
     padding-bottom: 15px;
     text-align: center;

@@ -4,7 +4,6 @@ import NotesList from '../components/NotesList'
 export default function Home({ notes }) {
   return (
     <>
-      {console.log(notes)}
       <Head>
         <title>Create Next App</title>
         <meta name='description' content='Home de la aplicación' />
