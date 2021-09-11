@@ -2,9 +2,12 @@ import { useQuill } from 'react-quilljs'
 import styles from './styles'
 import useField from '../../hooks/useField'
 import 'quill/dist/quill.snow.css'
+import { useRef } from 'react'
+import router from 'next/router'
 
 const NoteForm = () => {
   const { quill, quillRef } = useQuill()
+  const categoryField = useRef()
 
   const titleField = useField({
     type: 'text',
@@ -22,9 +25,31 @@ const NoteForm = () => {
     required: true
   })
 
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    try {
+      const sendedData = {
+        title: titleField.value,
+        description: descriptionField.value,
+        category: categoryField.current.value,
+        content: JSON.stringify(quill.getContents())
+      }
+      await fetch(process.env.NEXT_PUBLIC_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(sendedData)
+      })
+      router.push('/')
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>
           <p>Título de la nota</p>
           <input {...titleField} />
@@ -35,7 +60,7 @@ const NoteForm = () => {
         </label>
         <label>
           <p>Categoría</p>
-          <select name='category' id='category'>
+          <select name='category' id='category' ref={categoryField}>
             <option value='HTML'>HTML</option>
             <option value='CSS'>CSS</option>
             <option value='JavaScript'>JavaScript</option>

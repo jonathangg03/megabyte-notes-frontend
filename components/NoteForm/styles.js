@@ -42,6 +42,7 @@ export default css`
     color: white;
     background-color: transparent;
     border: 1px solid white;
+    cursor: pointer;
   }
 
   @media (max-width: 720px) {

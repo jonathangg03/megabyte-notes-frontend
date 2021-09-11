@@ -21,11 +21,11 @@ export default css`
   }
 
   article[category='HTML'] {
-    border-top: 2px solid ${colors.node};
+    border-top: 2px solid ${colors.html};
   }
 
   article[category='CSS'] {
-    border-top: 2px solid ${colors.js};
+    border-top: 2px solid ${colors.css};
   }
 
   article[category='Next.js'] {
