@@ -1,17 +1,13 @@
 import styles from './styles'
 import Link from 'next/link'
-import {
-  MdSearch,
-  MdEdit,
-  MdRemoveCircle,
-  MdRemoveCircleOutline
-} from 'react-icons/md'
-const Note = ({ title, description, technology, _id }) => {
+import { MdSearch, MdEdit, MdRemoveCircle } from 'react-icons/md'
+
+const Note = ({ title, description, category, _id }) => {
   return (
     <article>
       <h2>{title}</h2>
       <p>{description}</p>
-      <h3>{technology}</h3>
+      <h3>{category}</h3>
       <div>
         <Link href={`/${_id}/view`}>
           <a>
