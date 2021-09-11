@@ -1,20 +1,23 @@
 import { useRouter } from 'next/router'
+const API = process.env.NEXT_PUBLIC_API_URL
 
-const Delete = ({ id }) => {
+const Delete = ({ id, title }) => {
   const router = useRouter()
 
   const handleCancel = () => {
     router.push('/')
   }
 
-  const handleDelete = () => {
-    console.log('Eliminar')
-    router.replace()
+  const handleDelete = async () => {
+    await fetch(`${API}/${id}`, {
+      method: 'DELETE'
+    })
+    router.replace('/')
   }
   return (
     <>
       <section>
-        <h2>¿Seguro que deseas eliminar la nota {id}?</h2>
+        <h2>¿Seguro que deseas eliminar la nota: {title}?</h2>
         <div>
           <button onClick={handleDelete}>Eliminar</button>
           <button onClick={handleCancel}>Cancelar</button>
@@ -53,5 +56,14 @@ export const getServerSideProps = (ctx) => {
   const { params } = ctx
   const { id } = params
 
-  return { props: { id } }
+  return fetch(`${API}/${id}`)
+    .then((res) => res.json())
+    .then((data) => {
+      return {
+        props: {
+          id: data._id,
+          title: data.title
+        }
+      }
+    })
 }
