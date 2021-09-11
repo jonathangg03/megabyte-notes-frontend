@@ -1,5 +1,6 @@
 import styles from './styles'
 import Note from '../Note'
+import { useEffect, useState } from 'react'
 
 const NotesList = ({ notes }) => {
   return (
