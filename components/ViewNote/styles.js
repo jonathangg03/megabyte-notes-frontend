@@ -11,7 +11,10 @@ export default css`
     width: 100%;
     height: 100%;
     overflow: auto;
-    /* background-color: white; */
+  }
+
+  div {
+    border: none;
   }
 
   span {

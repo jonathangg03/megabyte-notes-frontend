@@ -1,29 +1,27 @@
 import { useEffect, useState } from 'react'
+import { useQuill } from 'react-quilljs'
+import 'quill/dist/quill.snow.css'
 import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
 import styles from './styles'
 
 const ViewNote = ({ content }) => {
   const [deltas, setDeltas] = useState({})
+  const { quill, quillRef } = useQuill({
+    readOnly: true,
+    modules: { toolbar: false }
+  })
 
   useEffect(() => {
-    const deltaOps = JSON.parse(content)
-
-    const cfg = {
-      encodeHtml: true
+    console.log(JSON.parse(content))
+    if (content && quill) {
+      quill.setContents(JSON.parse(content))
     }
-
-    const converter = new QuillDeltaToHtmlConverter(deltaOps.ops, cfg)
-
-    const html = converter.convert()
-
-    console.log(html)
-    setDeltas(html)
-  }, [])
+  }, [content, quill])
 
   return (
     <>
       <section>
-        <article dangerouslySetInnerHTML={{ __html: deltas }}></article>
+        <article ref={quillRef}></article>
       </section>
       <style jsx>{styles}</style>
     </>
