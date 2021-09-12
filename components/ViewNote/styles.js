@@ -1,5 +1,4 @@
 import css from 'styled-jsx/css'
-import { colors } from '../../themes'
 
 export default css`
   section {
@@ -12,7 +11,12 @@ export default css`
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: white;
+    /* background-color: white; */
+  }
+
+  span {
+    padding-left: 20px;
+    display: block;
   }
 
   @media (max-width: 720px) {
