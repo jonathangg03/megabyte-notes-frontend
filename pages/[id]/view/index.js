@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MdEdit } from 'react-icons/md'
+import { MdEdit, MdRemoveCircle } from 'react-icons/md'
 import ViewNote from '../../../components/ViewNote'
 import { colors } from '../../../themes'
 
@@ -11,6 +11,11 @@ const View = ({ note }) => {
         <Link href={`/${note._id}/update/`}>
           <a>
             <MdEdit />
+          </a>
+        </Link>
+        <Link href={`/${note._id}/delete/`}>
+          <a className='delete'>
+            <MdRemoveCircle />
           </a>
         </Link>
       </div>
@@ -26,6 +31,10 @@ const View = ({ note }) => {
           margin-left: 10px;
           display: flex;
           align-items: center;
+        }
+
+        .delete {
+          color: #fb6161;
         }
 
         h2 {

@@ -31,7 +31,6 @@ const NoteForm = ({ _id, title, description, category, content }) => {
   useEffect(() => {
     //Colocar categoría y contenido seleccionados
     if (category) {
-      console.log(content)
       categoryField.current.childNodes.forEach((option) => {
         if (option.value === category) {
           option.selected = true
@@ -55,24 +54,29 @@ const NoteForm = ({ _id, title, description, category, content }) => {
       content: JSON.stringify(quill.getContents())
     }
     try {
+      let id = ''
       if (_id) {
-        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${_id}`, {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${_id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(sendedData)
         })
+        const data = await res.json()
+        id = data._id
       } else {
-        await fetch(process.env.NEXT_PUBLIC_API_URL, {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(sendedData)
         })
+        const data = await res.json()
+        id = data._id
       }
-      router.push('/')
+      router.push(`/${id}/view`)
     } catch (error) {
       console.log(error.message)
     }

@@ -12,7 +12,6 @@ const ViewNote = ({ content }) => {
   })
 
   useEffect(() => {
-    console.log(JSON.parse(content))
     if (content && quill) {
       quill.setContents(JSON.parse(content))
     }
