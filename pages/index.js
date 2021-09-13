@@ -32,6 +32,7 @@ export default function Home({ notes }) {
           onChange={handleSearchChange}
         />
       </section>
+      {filteredNotes.length <= 0 && <h2>No se encontraron notas</h2>}
       <NotesList notes={filteredNotes} />
       <style jsx>{`
         input {
@@ -47,6 +48,10 @@ export default function Home({ notes }) {
           font-size: 1.6rem;
           background-color: transparent;
           color: white;
+        }
+
+        h2 {
+          font-size: 3rem;
         }
       `}</style>
     </>
