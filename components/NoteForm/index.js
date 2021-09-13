@@ -2,10 +2,10 @@ import { useQuill } from 'react-quilljs'
 import styles from './styles'
 import useField from '../../hooks/useField'
 import 'quill/dist/quill.snow.css'
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import router from 'next/router'
 
-const NoteForm = () => {
+const NoteForm = ({ _id, title, description, category, content }) => {
   const { quill, quillRef } = useQuill()
   const categoryField = useRef()
 
@@ -14,7 +14,8 @@ const NoteForm = () => {
     name: 'title',
     placeholder: 'Título',
     className: 'input__element',
-    required: true
+    required: true,
+    value: title
   })
 
   const descriptionField = useField({
@@ -22,25 +23,54 @@ const NoteForm = () => {
     name: 'description',
     placeholder: 'Descripción',
     className: 'input__element',
-    required: true
+    required: true,
+    value: description
   })
+
+  useEffect(() => {
+    //Colocar categoría y contenido seleccionados
+    if (category) {
+      console.log(content)
+      categoryField.current.childNodes.forEach((option) => {
+        if (option.value === category) {
+          option.selected = true
+        } else {
+          option.selected = false
+        }
+      })
+    }
+
+    if (content && quill) {
+      quill.setContents(JSON.parse(content))
+    }
+  }, [quill, category, content])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const sendedData = {
+      title: titleField.value,
+      description: descriptionField.value,
+      category: categoryField.current.value,
+      content: JSON.stringify(quill.getContents())
+    }
     try {
-      const sendedData = {
-        title: titleField.value,
-        description: descriptionField.value,
-        category: categoryField.current.value,
-        content: JSON.stringify(quill.getContents())
+      if (_id) {
+        await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${_id}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(sendedData)
+        })
+      } else {
+        await fetch(process.env.NEXT_PUBLIC_API_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(sendedData)
+        })
       }
-      await fetch(process.env.NEXT_PUBLIC_API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(sendedData)
-      })
       router.push('/')
     } catch (error) {
       console.log(error.message)
