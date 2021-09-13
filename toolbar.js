@@ -1,4 +1,5 @@
 //Configuración de toolbar de Quill
+//Sí no se configura, dará error si ingresamos despues de ver la nota
 
 const toolbar = [
   ['bold', 'italic', 'underline', 'strike'],
