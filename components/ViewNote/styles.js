@@ -13,7 +13,7 @@ export default css`
     overflow: auto;
   }
 
-  div {
+  .ql-container.ql-snow {
     border: none;
   }
 

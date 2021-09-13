@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { useRouter } from 'next/router'
 const API = process.env.NEXT_PUBLIC_API_URL
 
@@ -16,6 +17,9 @@ const Delete = ({ id, title }) => {
   }
   return (
     <>
+      <Head>
+        <title>Davdev Notes - Eliminar nota</title>
+      </Head>
       <section>
         <h2>¿Seguro que deseas eliminar la nota: {title}?</h2>
         <div>

@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { MdEdit, MdRemoveCircle } from 'react-icons/md'
 import ViewNote from '../../../components/ViewNote'
@@ -6,6 +7,9 @@ import { colors } from '../../../themes'
 const View = ({ note }) => {
   return (
     <>
+      <Head>
+        <title>Davdev Notes - Ver nota</title>
+      </Head>
       <div>
         <h2>{note.title}</h2>
         <Link href={`/${note._id}/update/`}>

@@ -1,10 +1,10 @@
 import { useQuill } from 'react-quilljs'
 import styles from './styles'
 import useField from '../../hooks/useField'
-import 'quill/dist/quill.snow.css'
 import { useEffect, useRef } from 'react'
 import toolbar from '../../toolbar'
 import router from 'next/router'
+import 'quill/dist/quill.snow.css'
 
 const NoteForm = ({ _id, title, description, category, content }) => {
   const { quill, quillRef } = useQuill({ modules: { toolbar: toolbar } })

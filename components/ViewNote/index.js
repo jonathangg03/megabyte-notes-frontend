@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useQuill } from 'react-quilljs'
-import 'quill/dist/quill.snow.css'
-import { QuillDeltaToHtmlConverter } from 'quill-delta-to-html'
 import styles from './styles'
+import 'quill/dist/quill.snow.css'
 
 const ViewNote = ({ content }) => {
-  const [deltas, setDeltas] = useState({})
   const { quill, quillRef } = useQuill({
     readOnly: true,
     modules: { toolbar: false }

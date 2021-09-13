@@ -1,9 +1,13 @@
+import Head from 'next/head'
 import NoteForm from '../../../components/NoteForm'
 
 const Update = ({ note }) => {
   return (
     <>
-      <h2>Agregar nueva nota</h2>
+      <Head>
+        <title>Davdev Notes - Actualizar nota</title>
+      </Head>
+      <h2>Actializar nota</h2>
       <NoteForm {...note} />
       <style jsx>{`
         h2 {
