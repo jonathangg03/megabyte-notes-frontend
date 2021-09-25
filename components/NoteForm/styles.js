@@ -35,14 +35,22 @@ export default css`
     height: calc(100% - 330px);
   }
 
+  article {
+    display: flex;
+    justify-content: center;
+  }
+
   button {
-    margin: 10px auto 0;
-    display: block;
+    margin: 10px 5px 0;
     padding: 8px 70px;
     color: white;
     background-color: transparent;
     border: 1px solid white;
     cursor: pointer;
+  }
+
+  button:disabled {
+    opacity: 0.5;
   }
 
   @media (max-width: 720px) {
@@ -63,9 +71,16 @@ export default css`
       width: 100%;
       height: calc(100% - 347px);
     }
+
     input,
     select {
       margin-bottom: 10px;
+    }
+
+    button {
+      margin: 10px 0 0;
+      padding: 8px 0;
+      width: 50%;
     }
   }
 `

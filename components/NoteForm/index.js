@@ -1,14 +1,27 @@
 import { useQuill } from 'react-quilljs'
 import styles from './styles'
 import useField from '../../hooks/useField'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import toolbar from '../../toolbar'
 import router from 'next/router'
 import 'quill/dist/quill.snow.css'
 
+const FETCHING_VALUES = {
+  ERROR: -1,
+  INITIAL: 0,
+  SUCCESS: 1,
+  LOADING: 2
+}
+
+const SAVED_VALUES = {
+  SAVED: 1,
+  UNSAVED: 0
+}
+
 const NoteForm = ({ _id, title, description, category, content }) => {
   const { quill, quillRef } = useQuill({ modules: { toolbar: toolbar } })
   const categoryField = useRef()
+  const [fetched, setFetched] = useState(FETCHING_VALUES.INITIAL)
 
   const titleField = useField({
     type: 'text',
@@ -47,6 +60,7 @@ const NoteForm = ({ _id, title, description, category, content }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    setFetched(FETCHING_VALUES.LOADING)
     const sendedData = {
       title: titleField.value,
       description: descriptionField.value,
@@ -65,6 +79,7 @@ const NoteForm = ({ _id, title, description, category, content }) => {
         })
         const data = await res.json()
         id = data._id
+        setFetched(FETCHING_VALUES.SUCCESS)
       } else {
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL, {
           method: 'POST',
@@ -75,11 +90,16 @@ const NoteForm = ({ _id, title, description, category, content }) => {
         })
         const data = await res.json()
         id = data._id
+        router.push(`/${id}/view`)
       }
-      router.push(`/${id}/view`)
     } catch (error) {
       console.log(error.message)
+      setFetched(FETCHING_VALUES.ERROR)
     }
+  }
+
+  const handleClose = () => {
+    router.push(`/${_id}/view`)
   }
 
   return (
@@ -105,7 +125,17 @@ const NoteForm = ({ _id, title, description, category, content }) => {
           </select>
         </label>
         <div ref={quillRef} />
-        <button type='submit'>Guardar</button>
+        <article>
+          <button
+            type='submit'
+            disabled={fetched === FETCHING_VALUES.LOADING ? 1 : 0}
+          >
+            {fetched === FETCHING_VALUES.LOADING ? 'Guardando...' : 'Guardar'}
+          </button>
+          <button type='button' onClick={handleClose}>
+            Cerrar
+          </button>
+        </article>
       </form>
       <style jsx>{styles}</style>
     </>
